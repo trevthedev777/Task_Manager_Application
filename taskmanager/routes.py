@@ -27,3 +27,15 @@ def add_category():
         db.session.commit()
         return redirect(url_for("categories"))
     return render_template("add_category.html")
+
+
+# the path will select the selected category to update
+@app.route("/edit_category/<int:category_id>", methods=["GET", "POST"])
+# we need to wire the category_id to identify which one we want to change
+def edit_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    if request.method == "POST":
+        category.category_name = request.form.get("category_name")
+        db.session.commit()
+        return redirect(url_for("categories"))
+    return render_template("edit_category.html", category=category)
