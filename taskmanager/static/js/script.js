@@ -1,17 +1,16 @@
-// Init Sidenav functionality
-$(document).ready(function(){
-    $('.sidenav').sidenav();
+document.addEventListener("DOMContentLoaded", function() {
+  // sidenav initialization
+  let sidenav = document.querySelectorAll(".sidenav");
+  M.Sidenav.init(sidenav);
+
+  // datepicker initialization
+  let datepicker = document.querySelectorAll(".datepicker");
+  M.Datepicker.init(datepicker, {
+      format: "dd mmmm, yyyy",
+      i18n: {done: "Select"}
   });
 
-// datepicker init
-$(document).ready(function(){
-  $('.datepicker').datepicker(
-    format, "mmmm dd, yyyy", 
-    i18n, {done: "Select"}
-    );
-});
-
-// select init 
-$(document).ready(function(){
-  $('select').formSelect();
+  // select initialization
+  let selects = document.querySelectorAll("select");
+  M.FormSelect.init(selects);
 });
