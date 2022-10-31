@@ -10,7 +10,12 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    # order_by method shows all records on the database stored in the Category table  ## noqa
+    categories = list(Category.query.order_by(Category.category_name).all())
+    # categories=categories displayes all the information to our users
+    # the first categories is the var name we can use within the HTML template
+    # the second categories which is a list is the variable defined within our function  # noqa
+    return render_template("categories.html", categories=categories)
 
 
 # include methods as we are submitting a form to the database
