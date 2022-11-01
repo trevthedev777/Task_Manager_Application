@@ -18,4 +18,10 @@ touch env.py
 ```
 
 4. Create a Package folder named `taskmanager`
-    -  Inside the folder creat a filder to 
+    -  Inside the folder create a folder to 
+
+
+## Bugs
+
+- Create defensive programming for add and edit category
+- Redirect the edit task page to route to Tasks.html
